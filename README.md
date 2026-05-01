@@ -40,3 +40,5 @@ We welcome contributions from the community! Currently, our core team of 3 devel
 
 ## 👥 Core Team
 - **Lead AI Engineer** - Algorithm design & A
+
+### 🟢 [LIVE DEMO: 点这里直接进入宏观情报终端](https://hyw88838.github.io/web3-airdrop-agent/)
