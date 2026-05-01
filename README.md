@@ -39,6 +39,4 @@ AirdropFlow aims to simplify Web3 participation by combining AI automation with 
 We welcome contributions from the community! Currently, our core team of 3 developers is focusing on the Layer 2 integration. 
 
 ## 👥 Core Team
-- **Lead AI Engineer** - Algorithm design & AI evaluation
-- **Data Scientist** - On-chain data parsing
-- **Full-stack Dev** - Dashboard UI & Extension
+- **Lead AI Engineer** - Algorithm design & A
