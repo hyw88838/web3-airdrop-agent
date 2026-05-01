@@ -12,3 +12,6 @@ Used daily for discovering and participating in airdrops.
 
 ## Status
 Actively running and improving.
+
+## Update
+Added basic evaluation logic.
