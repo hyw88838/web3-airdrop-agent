@@ -1,17 +1,36 @@
-# Web3 Airdrop Multi-Agent System
+# AirdropFlow AI
 
-A lightweight system for automating airdrop discovery and task execution.
+An AI-powered automation system for discovering and managing Web3 airdrop opportunities.
 
-## Features
-- Airdrop data collection
-- AI-based filtering
-- Task generation
+## 🚀 What it does
+AirdropFlow helps users:
+- Discover new airdrop opportunities
+- Filter high-quality projects using AI
+- Generate step-by-step task workflows
 
-## Usage
-Used daily for discovering and participating in airdrops.
+## ⚙️ Core Modules
+- Data Agent -> Collects airdrop data from multiple sources
+- Evaluation Agent -> Scores projects using AI
+- Execution Agent -> Generates actionable steps
 
-## Status
-Actively running and improving.
+## 📊 Example Workflow
+1. Fetch latest airdrop data
+2. Filter low-quality projects
+3. Generate task list
+4. Track participation
 
-## Update
-Added basic evaluation logic.
+## 📱 Use Case
+Used daily to manage airdrop participation and improve efficiency.
+
+## 🔥 Status
+- Actively running
+- Continuous improvement
+- Lightweight deployment (mobile + scripts)
+
+## 🛣️ Roadmap
+- On-chain data integration
+- Reward tracking system
+- Multi-account automation
+
+## 💡 Vision
+AirdropFlow aims to simplify Web3 participation by combining AI automation with structured workflows.
