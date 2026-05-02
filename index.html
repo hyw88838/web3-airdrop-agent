@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SENTINEL TERMINAL</title>
+    <style>
+        body { background: #000; color: #00ff00; font-family: 'Courier New', monospace; padding: 15px; line-height: 1.5; }
+        .header { border-bottom: 2px solid #00ff00; margin-bottom: 20px; padding-bottom: 10px; }
+        .box { border: 1px solid #00ff00; padding: 10px; margin-bottom: 15px; background: rgba(0, 20, 0, 0.8); }
+        .price { color: #fff; font-weight: bold; }
+        .term-out { font-size: 0.9em; color: #00cc00; }
+        .blink { animation: blinker 1s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>[ SENTINEL ] <span class="blink">●</span> 系统待机中</div>
+        <div style="font-size: 0.8em;">INSTITUTIONAL MACRO TERMINAL v5.1</div>
+    </div>
+
+    <div class="box">
+        <div>同步时间: <span id="sync-time">--:--:--</span></div>
+        <div>系统状态: <span id="sys-status">OFFLINE</span></div>
+    </div>
+
+    <div class="box">
+        <div>BTC/USD: <span class="price" id="btc">---</span></div>
+        <div>ETH/USD: <span class="price" id="eth">---</span></div>
+        <div>S&P 500: <span class="price" id="spx">---</span></div>
+        <div>GOLD:    <span class="price" id="gold">---</span></div>
+    </div>
+
+    <div class="box">
+        <div style="border-bottom: 1px solid #00ff00; margin-bottom: 5px;">实时数据流 (RAW FEEDS)</div>
+        <div id="feeds" class="term-out">等待指令...</div>
+    </div>
+
+    <script>
+        async function update() {
+            try {
+                const r = await fetch('./data.json?t=' + Date.now());
+                const d = await r.json();
+                document.getElementById('sync-time').innerText = d.last_sync;
+                document.getElementById('sys-status').innerText = d.status;
+                document.getElementById('btc').innerText = d.prices.BTC;
+                document.getElementById('eth').innerText = d.prices.ETH;
+                document.getElementById('spx').innerText = d.prices["S&P500"];
+                document.getElementById('gold').innerText = d.prices.GOLD;
+                document.getElementById('feeds').innerHTML = d.news.map(n => `> ${n}`).join('<br>');
+            } catch(e) { console.log("等待数据同步..."); }
+        }
+        setInterval(update, 5000);
+        update();
+    </script>
+</body>
+</html>
