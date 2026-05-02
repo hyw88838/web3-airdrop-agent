@@ -1,0 +1,29 @@
+name: Sentinel_Auto_Run
+
+on:
+  schedule:
+    - cron: '*/30 * * * *' # 每 30 分钟跑一次
+  workflow_dispatch:      # 允许手动点按钮跑
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Install Deps
+        run: pip install -r requirements.txt
+      - name: Run Agent
+        run: python agent.py
+      - name: Commit & Push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Sentinel-Bot"
+          git add data.json
+          git commit -m "System Sync: $(date)" || exit 0
+          git push
